@@ -33,10 +33,13 @@ function onStartBtnClick() {
   datetimePicker.setAttribute('disabled', 'true');
   startBtn.setAttribute('disabled', 'true');
 
-  setInterval(() => {
+  const timer = setInterval(() => {
     const currentTimeEnd = fp.selectedDates[0] - Date.now();
     const { days, hours, minutes, seconds } = convertMs(currentTimeEnd);
 
+    if (currentTimeEnd < 1000) {
+      clearInterval(timer);
+    }
     dataDays.textContent = leftFillNum(days);
     dataHours.textContent = leftFillNum(hours);
     dataMinutes.textContent = leftFillNum(minutes);
