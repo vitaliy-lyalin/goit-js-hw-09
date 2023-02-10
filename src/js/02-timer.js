@@ -39,6 +39,7 @@ function onStartBtnClick() {
 
     if (currentTimeEnd < 1000) {
       clearInterval(timer);
+      datetimePicker.removeAttribute('disabled');
     }
     dataDays.textContent = leftFillNum(days);
     dataHours.textContent = leftFillNum(hours);
